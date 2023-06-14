@@ -17,18 +17,18 @@ const isInteger = num => /^-?[0-9]+$/.test(num);
 function question () {
     count++;
     readline.question(`Попытка № ${count}. Введите число: `, (number) => {
-        dataFile += `Попытка № ${count}. `
+        dataFile += `Попытка № ${count}. `;
         if (number == 'end') {
-            dataFile += 'Конец программы.\n'
+            dataFile += 'Конец программы.\n';
             console.log(colorRed('Конец программы.'));
             readline.close();
             saveFile(dataFile);
         } else if (!isInteger(number)) {
-            dataFile += `Ошибка. Вы ввели "${number}" - это не число!!!\n`
+            dataFile += `Ошибка. Вы ввели "${number}" - это не число!!!\n`;
             console.log(colorRed(`Ошибка. Вы ввели "${number}" - это не число!!!`));
             question();
         } else if (number == numberForUser) {
-            dataFile += `Поздравляем! Вы угадали число!!! Общее колличество попыток ${count}.\n`
+            dataFile += `Поздравляем! Вы угадали число!!! Общее колличество попыток ${count}.\n`;
             console.log(colorGreen(`Поздравляем! Вы угадали число!!! Общее колличество попыток ${count}.`));
             readline.close();
             saveFile(dataFile);
@@ -56,5 +56,3 @@ function saveFile (data) {
 let count = 0;
 let dataFile = '';
 question();
-
- 
